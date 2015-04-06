@@ -1,0 +1,8 @@
+{
+	"name": "ordenacao",
+	"description": "Sorting algorithms in D language.",
+	"copyright": "Copyright © 2015, emanuel",
+	"authors": ["emanuel"],
+	"dependencies": {
+	}
+}
