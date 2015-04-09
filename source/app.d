@@ -5,7 +5,7 @@ import std.random;
 import std.conv;
 import std.algorithm;
 import SelectionSort, QuickSort, MergeSort, Trocar, InsertionSort,
-		BubbleFlag, BubbleSort, ShellSort, CountingSort, RapidSort;
+		BubbleFlag, BubbleSort, ShellSort, CountingSort, RapidSort, HeapSort;
 void main(string[] args)
 {	
 
@@ -13,21 +13,22 @@ void main(string[] args)
 	int count;
 	readf("%s", &count);
 
-	int[] vet = rndArray(count);
+	//int[] vet = rndArray(count);
 	//int[] vet = [11,20,5,10,9,7,10,8];
-	//int vet[] = [3,5,8,9,3];
-	//countingSort(vet);
+	int vet[] = [2,5,3,1];
+	//heapSort(vet);
 	//writeln(vet);
 
 	//writeln(vet);
 	//Chama algoritmo e mede o tempo
 	//writeln(vet);
-	vet.MedeTempo("RapidSort");
+	//vet.MedeTempo("RapidSort");
+	vet.MedeTempo("HeapSort");
 	//writeln(vet);
-	vet.MedeTempo("CountingSort");
-	vet.MedeTempo("QuickSort");
-	vet.MedeTempo("MergeSort");
-	vet.MedeTempo("ShellSort");
+	//vet.MedeTempo("CountingSort");
+	//vet.MedeTempo("QuickSort");
+	//vet.MedeTempo("MergeSort");
+	//vet.MedeTempo("ShellSort");
 	//vet.MedeTempo("InsertionSort");
 	//vet.MedeTempo("SelectionSort");
 	//vet.MedeTempo("BubbleSort");
@@ -169,6 +170,18 @@ int[] MedeTempo(int[] vet, string alg)
 			
 			sw.start(); //start/resume mesuring.
 			countingSort(aux);
+			sw.stop(); //start/resume mesuring.
+			time = sw.peek();
+			usecs = (to!double(time.usecs));
+			marca = (usecs / xsec);
+			writefln("%s: %f", alg, marca);
+			sw.reset();
+			break;
+
+		case "HeapSort":
+			
+			sw.start(); //start/resume mesuring.
+			heapSort(aux);
 			sw.stop(); //start/resume mesuring.
 			time = sw.peek();
 			usecs = (to!double(time.usecs));
